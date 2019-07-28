@@ -20,4 +20,4 @@ statics: main.wasm
 main.wasm: main.go
 	if test ! -d $(BUILDDIR); then  mkdir -p $(BUILDDIR); fi
 	$(TOOLS)/dep ensure
-	go build -o $(BUILDDIR)/main.wasm main.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o $(BUILDDIR)/main.wasm main.go
